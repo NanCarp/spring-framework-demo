@@ -44,4 +44,79 @@ public final class CastUtil {
         }
         return doubleValue;
     }
+
+    /**
+     * 转为 long 型
+     */
+    public static long castLong(Object obj) {
+        return CastUtil.castLong(obj, 0);
+    }
+
+    /**
+     * 转为 long 型（提供默认值）
+     */
+    public static long castLong(Object obj, long defultValue) {
+        long longValue = defultValue;
+        if (obj != null) {
+            String strValue = castString(obj);
+            if (StringUtil.isNotEmpty(strValue)) {
+                try {
+                    longValue = Long.parseLong(strValue);
+                } catch (NumberFormatException e) {
+                    longValue = defultValue;
+                }
+            }
+        }
+        return longValue;
+    }
+
+    /**
+     * 转为 int 型
+     */
+    public static int castInt(Object obj) {
+        return CastUtil.castInt(obj, 0);
+    }
+
+    /**
+     * 转为 int 型（提供默认值）
+     */
+    public static int castInt(Object obj, int defultValue) {
+        int intValue = defultValue;
+        if (obj != null) {
+            String strValue = castString(obj);
+            if (StringUtil.isNotEmpty(strValue)) {
+                try {
+                    intValue = Integer.parseInt(strValue);
+                } catch (NumberFormatException e) {
+                    intValue = defultValue;
+                }
+            }
+        }
+        return intValue;
+    }
+
+    /**
+     * 转为 boolean 型
+     */
+    public static boolean castBoolean(Object obj) {
+        return CastUtil.castBoolean(obj, false);
+    }
+
+    /**
+     * 转为 boolean 型（提供默认值）
+     */
+    public static boolean castBoolean(Object obj, boolean defultValue) {
+        boolean booleanValue = defultValue;
+        if (obj != null) {
+            String strValue = castString(obj);
+            if (StringUtil.isNotEmpty(strValue)) {
+                try {
+                    booleanValue = Boolean.parseBoolean(strValue);
+                } catch (NumberFormatException e) {
+                    booleanValue = defultValue;
+                }
+            }
+        }
+        return booleanValue;
+    }
 }

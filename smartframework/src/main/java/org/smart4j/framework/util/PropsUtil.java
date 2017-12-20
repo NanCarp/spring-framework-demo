@@ -82,7 +82,7 @@ public class PropsUtil {
      * 获取布尔型属性（默认值为 0）
      */
     public static boolean getBoolean(Properties props, String key) {
-        return getInt(props, key, false);
+        return getBoolean(props, key, false);
     }
 
     /**

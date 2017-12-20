@@ -1,6 +1,7 @@
 package org.smart4j.framework.Helper;
 
 import org.smart4j.framework.ConfigConstant;
+import org.smart4j.framework.util.PropsUtil;
 
 import java.util.Properties;
 
@@ -28,9 +29,16 @@ public final class ConfigHelper {
     }
 
     /**
+     * 获取 JDBC 用户名
+     */
+    public static String getJdbcUsername() {
+
+        return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JDBC_USERNAME);
+    }
+    /**
      * 获取 JDBC 密码
      */
-    public static String getJdbcUrl() {
+    public static String getJdbcPassword() {
         return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JDBC_PASSWORD);
     }
 
