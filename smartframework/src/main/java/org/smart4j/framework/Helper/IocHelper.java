@@ -6,6 +6,7 @@ import org.smart4j.framework.util.CollectionUtil;
 import org.smart4j.framework.util.ReflectionUtil;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -42,5 +43,10 @@ public final class IocHelper {
                 }
             }
         }
+
+
+
+        Map<String, Object> a = new HashMap<String, Object>();
+        
     }
 }
