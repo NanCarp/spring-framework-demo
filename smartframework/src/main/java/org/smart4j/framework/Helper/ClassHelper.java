@@ -19,8 +19,8 @@ public final class ClassHelper {
     private static final Set<Class<?>> CLASS_SET;
 
     static {
-        String basePackge = ConfigHelper.getAppBasePackage();
-        CLASS_SET = ClassUtil.getClassSet(basePackge);
+        String basePackage = ConfigHelper.getAppBasePackage();
+        CLASS_SET = ClassUtil.getClassSet(basePackage);
     }
 
     /**
@@ -64,5 +64,18 @@ public final class ClassHelper {
         beanClassSet.addAll(getServiceClassSet());
         beanClassSet.addAll(getControllerClassSet());
         return beanClassSet;
+    }
+
+    /**
+     * 获取应用包名下某父类（或接口）的所有子类（或实现类）
+     */
+    public static Set<Class<?>> getClassSetBySuper(Class<?> superClass) {
+        Set<Class<?>> classSet = new HashSet<Class<?>>();
+        for (Class<?> cls : CLASS_SET) {
+            if (superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
+                classSet.add(cls);
+            }
+        }
+        return classSet;
     }
 }
