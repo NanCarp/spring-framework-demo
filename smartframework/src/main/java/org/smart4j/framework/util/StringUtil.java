@@ -29,4 +29,12 @@ public final class StringUtil {
     public static boolean isNotEmpty(String str) {
         return !isEmpty(str);
     }
+
+    public static String[] splitString(String str, String separator) {
+        String[] strings = null;
+        if (str != null) {
+            strings = str.split(separator);
+        }
+        return strings;
+    }
 }
