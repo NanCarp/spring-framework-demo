@@ -41,4 +41,11 @@ public final class CodecUtil {
         }
         return target;
     }
+
+    /**
+     * MD5 加密
+     */
+    public static String md5(String source) {
+        return DigestUtils.md5Hex(source);
+    }
 }
